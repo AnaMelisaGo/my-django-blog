@@ -89,8 +89,8 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get(
-        'DATABASE_URL'))  # using Heroku database as backend
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    # using Heroku database as backend
 }
 
 # Password validation
