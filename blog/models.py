@@ -43,7 +43,7 @@ class Post(models.Model):
 
 
 # Comments model
-class Comments(models.Model):
+class Comment(models.Model):
     """
     Model for the comment section
     """
