@@ -24,12 +24,12 @@ class CommentAdmin(admin.ModelAdmin):
     """
     list_filter = ('approved', 'created_on')
     list_display = ('name', 'body', 'post', 'created_on', 'approved')
-    search_fields = ['name', 'email', 'body']
-    actions = ['approved_commets']
+    search_fields = ('name', 'email', 'body')
+    actions = ['approve_comments']
 
-    def approved_comments(self, request, queryset):
+    def approve_comments(self, request, queryset):
         """
         To approve any comments on the blog
         to update models
         """
-        queryset.update(approved="True")
+        queryset.update(approved=True)

@@ -81,17 +81,24 @@
             <div class="card-body">
 
                 <!-- Comment section -->
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Your comment is awaiting approval
+                </div>
+                {% else %}
 
                 {% if user.is_authenticated %}
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
-                <form action="post" style="margin-top: 1.3em;">
+                <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
                     <button class="btn btn-signup btn-lg" type="submit">Submit</button>
                 </form>
 
                 {% endif %}
+                {% endif %}
+
 
             </div>
         </div>
