@@ -66,6 +66,22 @@
         </div>
     </nav>
 
+    <!-- message tags -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <!-- loop through the messages -->
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
     <main class="flex-shrink-0 main-bg">
         {% block content %}
         <!-- Content Goes here -->
@@ -80,6 +96,8 @@
             <i class="fab fa-instagram-square ms-3"></i>
             <i class="fab fa-youtube-square ms-3"></i></p>
     </footer>
+
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>

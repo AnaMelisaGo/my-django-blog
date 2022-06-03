@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
@@ -61,6 +62,8 @@ class PostDetail(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            messages.add_message(
+                request, messages.SUCCESS, 'Comment success! Awaiting approval!')
         else:
             comment_form = CommentForm()
 
